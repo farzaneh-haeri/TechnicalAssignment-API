@@ -31,6 +31,10 @@ public class State {
     public void setValue(String value) {
         this.value = value;
     }
+    
+    public String getUserId() {
+        return userId;
+    }
 
     @Override
     public String toString() {
