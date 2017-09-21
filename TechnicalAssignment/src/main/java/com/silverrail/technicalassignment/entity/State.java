@@ -33,6 +33,10 @@ public class State {
     public void setValue(String value) {
         this.value = value;
     }
+    
+    public String getUserId() {
+        return userId;
+    }
 
     public String getUserId() {
         return userId;
