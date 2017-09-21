@@ -1,4 +1,4 @@
-## STRING STATE
+## S T R I N G  S T A T E
 #### A Silverlink Assignment
 
 ### Technologies Used
