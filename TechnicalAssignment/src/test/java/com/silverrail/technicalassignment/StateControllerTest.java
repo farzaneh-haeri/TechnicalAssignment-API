@@ -144,16 +144,6 @@ public class StateControllerTest {
         verifyNoMoreInteractions(stateService);
     }
 
-//    @Test
-//    public void test_append_fail_because_of_selected_more_than_one_char() throws Exception{
-//        CharsToAppend charsToAppend = new CharsToAppend('cdd",1);
-//
-//        mockMvc.perform(
-//                post("/chars").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
-//                        .content(asJsonString(charsToAppend)))
-//                .andExpect(status().isBadRequest());
-//    }
-
     @Test
     public void test_append_fail_because_of_none_alphabetic_char() throws Exception{
         CharsToAppend charsToAppend = new CharsToAppend('@',1);
