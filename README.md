@@ -1,5 +1,5 @@
-#### STRING STATE
-## A Silverlink Assignment
+## STRING STATE
+#### A Silverlink Assignment
 
 ### Technologies Used
 
