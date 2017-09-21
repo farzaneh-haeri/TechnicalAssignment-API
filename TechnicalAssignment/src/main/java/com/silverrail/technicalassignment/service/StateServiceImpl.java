@@ -94,7 +94,7 @@ public class StateServiceImpl implements StateService{
 
         currentStateValue.deleteCharAt(lastIndex);
         logger.info("UserId " + userId + " deleted char: " + character + " from " + currentStateValue);
-        currentState.setValue(currentStateValue.deleteCharAt(lastIndex).toString());
+        currentState.setValue(currentStateValue.toString());
         saveOrUpdateState(currentState);
         return currentState;
     }

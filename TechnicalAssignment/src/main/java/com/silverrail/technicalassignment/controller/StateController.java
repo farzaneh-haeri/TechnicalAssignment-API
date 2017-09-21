@@ -13,6 +13,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.ConstraintViolation;
@@ -80,6 +81,15 @@ public class StateController {
                 .stream()
                 .map(FieldError::getDefaultMessage)
                 .collect(Collectors.toList()));
+        logger.error(error);
+        return error;
+    }
+
+    @ExceptionHandler
+    @ResponseBody
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public Map handle(MethodArgumentTypeMismatchException exception) {
+        Map error = error(exception.getMessage());
         logger.error(error);
         return error;
     }
