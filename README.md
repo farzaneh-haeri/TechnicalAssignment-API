@@ -1,15 +1,11 @@
 ### Technologies Used
 
 <b> Language </b> Java 8 <br/>
-<b> Frameworks and APIs </b> Spring Boot (Ver. 1.5.6), REST using Jersey Libraries
-
-Database --> H2 in memory Database
-
-Test --> Junit, Mockito
-
-Persistence	-->	Spring Data - JPA
-
-Build and Deployment -->	Maven
+<b> Frameworks and APIs </b> Spring Boot (Ver. 1.5.6), REST using Jersey Libraries </br>
+<b> Database </b> H2 in memory Database </br>
+<b> Test </b> Junit, Mockito </br>
+<b> Persistence </b> Spring Data, JPA </br>
+<b> Build and Deployment </b> Maven </br>
 
 
 ### Running the application locally
