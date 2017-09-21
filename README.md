@@ -1,4 +1,4 @@
-<h3 style="color:orange">S T R I N G &nbsp; S T A T E</h3><h6>(A Silverlink Assignment)</h6>
+<h3 "color:orange"> S T R I N G &nbsp; S T A T E </h3> <h6> (A Silverlink Assignment)</h6>
 
 ### Technologies Used
 
