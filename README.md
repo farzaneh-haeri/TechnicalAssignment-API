@@ -1,6 +1,6 @@
 <h3>S T R I N G &nbsp; S T A T E</h3> <h6>(A Silverlink Assignment)</h6>
 
-<h5>Technologies Used</h5>
+<h3>Technologies Used</h3>
 
 <b> Language </b> Java 8 <br/>
 <b> Frameworks and APIs </b> Spring Boot (Ver. 1.5.6), REST using Jersey Libraries </br>
