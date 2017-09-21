@@ -1,4 +1,4 @@
-<h3>S T R I N G &nbsp; S T A T E</h3><h6>(A Silverlink Assignment)</h6>
+<h3><red>S T R I N G &nbsp; S T A T E</red></h3><h6>(A Silverlink Assignment)</h6>
 
 ### Technologies Used
 
