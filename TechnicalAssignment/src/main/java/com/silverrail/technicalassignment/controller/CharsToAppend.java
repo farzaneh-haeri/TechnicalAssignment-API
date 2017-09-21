@@ -9,14 +9,12 @@ public class CharsToAppend {
     private long count;
 
     @NotNull
-    @Size(min=1, max=1, message="Value to append must be one character.")
-    @Pattern(regexp = "^[A-Za-z0-9]+$", message="The character can be only numbers or letters.")
-    private String character;
+    private Character character;
 
     public CharsToAppend(){
 
     }
-    public CharsToAppend(String character, long count) {
+    public CharsToAppend(Character character, long count) {
         this.character = character;
         this.count = count;
     }
@@ -25,7 +23,7 @@ public class CharsToAppend {
         return (int) count;
     }
 
-    public String getCharacter() {
+    public Character getCharacter() {
         return character;
     }
 }

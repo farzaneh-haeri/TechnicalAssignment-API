@@ -31,22 +31,22 @@ public class StateServiceImpl implements StateService{
         State state = stateRepository.findOne(userId);
         if(state == null)
             state = new State(userId, "");
-        logger.info("UserId: " + userId + "got current state: " + state.getValue());
+        logger.info("UserId " + userId + " got current state: " + state.getValue());
         return state;
     }
 
     @Override
     public State append(String userId, CharsToAppend charsToAppend) {
-        final String stringToAppend = new String(new char[charsToAppend.getCount()]).replace("\0", charsToAppend.getCharacter());
+        final String stringToAppend = new String(new char[charsToAppend.getCount()]).replace('\0', charsToAppend.getCharacter());
         State currentState = getState(userId);
         String currentStateValue = currentState.getValue();
         currentState.setValue(currentStateValue + stringToAppend);
         if (currentState.getValue().length() > MAX_LENGTH) {
-            logger.error("The length of the string state will exceed 200 characters." + currentState);
-            throw new StateException("The length of the string state will exceed 200 characters.");
+            logger.error("Length of the string state will exceed 200 characters!" + currentState);
+            throw new StateException("Length of the string state will exceed 200 characters!");
         }
 
-        logger.info("UserId: " + userId + " added " + charsToAppend.getCharacter() + " " + charsToAppend.getCount() + " times");
+        logger.info("UserId " + userId + " added " + charsToAppend.getCharacter() + " " + charsToAppend.getCount() + " time(s)");
         saveOrUpdateState(currentState);
         return currentState;
     }
@@ -59,7 +59,7 @@ public class StateServiceImpl implements StateService{
         for (String digit : digits) {
                 sum += Integer.parseInt(digit);
         }
-        logger.info("UserId: " + userId + " got sum of " + currentState + " sum: " + sum);
+        logger.info("UserId " + userId + " got sum of " + currentState + ", sum: " + sum);
         return sum;
     }
 
@@ -68,11 +68,10 @@ public class StateServiceImpl implements StateService{
         State currentState = getState(userId);
         final String stateWithoutNumbers = filterNumericChars(currentState.getValue());
         if(stateWithoutNumbers.isEmpty()) {
-            logger.error("UserId: " + userId + " got current state without numbers: " + currentState);
-            throw new StateException("There is no alphabetic character.");
+            logger.error("UserId " + userId + " got current state without numbers: " + currentState);
+            throw new StateException("No alphabetic character found!");
         }
-
-        logger.info("UserId: " + userId + " got current state without numbers: " + currentState);
+        logger.info("UserId " + userId + " got current state without numbers: " + currentState);
         return stateWithoutNumbers;
     }
 
@@ -80,23 +79,22 @@ public class StateServiceImpl implements StateService{
     public State deleteLastOccurrenceOfCharacter(String userId, Character character) {
 
         if(!Character.isLetterOrDigit(character)){
-            logger.info("UserId: " + userId + " could not delete char: " + character);
-            throw new StateException("Character has to be an alphanumeric character.");
+            logger.error("UserId " + userId + " could not delete: " + character);
+            throw new StateException("Only alphanumeric characters are accepted!");
         }
 
         State currentState = getState(userId);
-        String currentStateValue = currentState.getValue();
-        final int lastIndex = currentStateValue.lastIndexOf(character);
+        StringBuilder currentStateValue = new StringBuilder(currentState.getValue());
+        final int lastIndex = currentStateValue.lastIndexOf(String.valueOf(character));
 
         if (lastIndex < 0) {
-            logger.info("UserId: " + userId + " could not delete char: " + character + " Cause: " + " not found");
-            throw new StateException("Char: " + character + " not found.");
+            logger.error("UserId " + userId + " could not delete char: " + character + ", because " + character + " not found");
+            throw new StateException("Char " + character + " not found.");
         }
-        StringBuilder sb = new StringBuilder(currentStateValue);
-        sb.deleteCharAt(lastIndex);
-        final String newStateValue = sb.toString();
-        logger.info("UserId: " + userId + " deleted char: " + character + " from " + currentStateValue);
-        currentState.setValue(newStateValue);
+
+        currentStateValue.deleteCharAt(lastIndex);
+        logger.info("UserId " + userId + " deleted char: " + character + " from " + currentStateValue);
+        currentState.setValue(currentStateValue.deleteCharAt(lastIndex).toString());
         saveOrUpdateState(currentState);
         return currentState;
     }
