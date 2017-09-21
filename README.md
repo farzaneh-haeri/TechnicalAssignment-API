@@ -1,4 +1,4 @@
-### S T R I N G &nbsp; S T A T E
+### S T R I N G &nbsp; &nbsp; S T A T E
 #### A Silverlink Assignment
 
 ### Technologies Used
