@@ -38,10 +38,6 @@ public class State {
         return userId;
     }
 
-    public String getUserId() {
-        return userId;
-    }
-
     @Override
     public String toString() {
         return "State{" +
