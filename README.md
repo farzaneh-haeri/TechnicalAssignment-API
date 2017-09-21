@@ -21,7 +21,7 @@ dependency-jars2.zip</br>
 3. Put the technicalassignment-0.0.1.jar and dependecy-jars folder together in a folder</br>
 4. Open Server file and replace following contents:</br>
 export JAVA_HOME = <JAVA_HOME></br>
-cd <The jar file path></br>
+cd &lt;The jar file path&gt;</br>
 5. Run Server</br>
 </br>
 Application will run and services can be tested using Postman, SoapUI or command line tools e.g. curl
